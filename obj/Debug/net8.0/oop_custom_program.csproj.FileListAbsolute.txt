@@ -1,0 +1,14 @@
+V:\OOP Custom program\bin\Debug\net8.0\oop_custom_program.exe
+V:\OOP Custom program\bin\Debug\net8.0\oop_custom_program.deps.json
+V:\OOP Custom program\bin\Debug\net8.0\oop_custom_program.runtimeconfig.json
+V:\OOP Custom program\bin\Debug\net8.0\oop_custom_program.dll
+V:\OOP Custom program\bin\Debug\net8.0\oop_custom_program.pdb
+V:\OOP Custom program\obj\Debug\net8.0\oop_custom_program.GeneratedMSBuildEditorConfig.editorconfig
+V:\OOP Custom program\obj\Debug\net8.0\oop_custom_program.AssemblyInfoInputs.cache
+V:\OOP Custom program\obj\Debug\net8.0\oop_custom_program.AssemblyInfo.cs
+V:\OOP Custom program\obj\Debug\net8.0\oop_custom_program.csproj.CoreCompileInputs.cache
+V:\OOP Custom program\obj\Debug\net8.0\oop_custom_program.dll
+V:\OOP Custom program\obj\Debug\net8.0\refint\oop_custom_program.dll
+V:\OOP Custom program\obj\Debug\net8.0\oop_custom_program.pdb
+V:\OOP Custom program\obj\Debug\net8.0\oop_custom_program.genruntimeconfig.cache
+V:\OOP Custom program\obj\Debug\net8.0\ref\oop_custom_program.dll
