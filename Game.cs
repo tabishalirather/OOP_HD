@@ -16,6 +16,7 @@ public class Game
         _enemies = Enemy.Spawn(_spriteSheet, 5, _gameWindow); // Spawn 10 enemies
     }
     
+     //TODO: `This is not working properly. It deletes enemies whenever a bullet is fired and goes crazy. 
 public void CheckBulletEnemyCollisions()
 {
     for (int i = _enemies.Count - 1; i >= 0; i--)

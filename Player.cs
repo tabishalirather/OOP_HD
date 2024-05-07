@@ -20,7 +20,7 @@ public class Player
         _playerBitmap = sheet;
         _x = x;
         _y = y;
-        _sourceRect = SplashKit.RectangleFrom(7, 0, width, height); // Adjust if your sprite is not at the top-left
+        _sourceRect = SplashKit.RectangleFrom(7, 0, width, height); 
     }
 
     public void Update()
