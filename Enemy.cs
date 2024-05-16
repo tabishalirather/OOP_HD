@@ -1,8 +1,9 @@
 ﻿using SplashKitSDK;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using oop_custom_program;
 
-public class Enemy
+public class Enemy : GameObject
 {
     private Bitmap _bitmap;
     private double _x, _y;
@@ -56,24 +57,36 @@ public class Enemy
         return enemies;
     }
     
+        public void Shoot(List<Bullet> bullets)
+        {
+            
+            bullets.Add(new Bullet(X + Width / 2, Y + Height, "down"));
+        }
+
+        // Existing code...
+    
     public bool Intersects(Bullet bullet)
     {
-        // Get the position and radius of the bullet
-        double bulletX = _x;
-        double bulletY = _y;
-        double bulletRadius = 2;
+        // Define the boundary of the bullet
+        double bulletRightEdge = bullet.X + 2; // Bullet width is considered as 2 for collision
+        double bulletLeftEdge = bullet.X;
+        double bulletTopEdge = bullet.Y;
+        double bulletBottomEdge = bullet.Y + 2; // Bullet height is considered as 2 for collision
 
-        // Get the position and radius of the enemy
-        double enemyX = X;
-        double enemyY = Y;
-        double enemyRadius = Width / 2; // Assuming the enemy is a circle, its radius is half its width
+        // Define the boundary of the enemy
+        double enemyRightEdge = _x + _sourceRect.Width;
+        double enemyLeftEdge = _x;
+        double enemyTopEdge = _y;
+        double enemyBottomEdge = _y + _sourceRect.Height;
 
-        // Calculate the distance between the centers of the bullet and the enemy
-        double distance = Math.Sqrt(Math.Pow(bulletX - enemyX, 2) + Math.Pow(bulletY - enemyY, 2));
+        // Check if there is an overlap between the bullet's and enemy's boundaries
+        bool horizontalOverlap = enemyRightEdge > bulletLeftEdge && enemyLeftEdge < bulletRightEdge;
+        bool verticalOverlap = enemyBottomEdge > bulletTopEdge && enemyTopEdge < bulletBottomEdge;
 
-        // If the distance is less than the sum of the radii, the circles intersect
-        return distance < bulletRadius + enemyRadius;
+        // Return true if both horizontal and vertical overlaps exist, indicating a collision
+        return horizontalOverlap && verticalOverlap;
     }
+
 
     public double X
         {

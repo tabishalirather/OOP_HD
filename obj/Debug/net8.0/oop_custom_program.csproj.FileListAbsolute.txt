@@ -12,3 +12,4 @@ V:\OOP Custom program\obj\Debug\net8.0\refint\oop_custom_program.dll
 V:\OOP Custom program\obj\Debug\net8.0\oop_custom_program.pdb
 V:\OOP Custom program\obj\Debug\net8.0\oop_custom_program.genruntimeconfig.cache
 V:\OOP Custom program\obj\Debug\net8.0\ref\oop_custom_program.dll
+V:\OOP Custom program\obj\Debug\net8.0\oop_custom_program.sourcelink.json

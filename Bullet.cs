@@ -1,15 +1,22 @@
-﻿using SplashKitSDK;
-public class Bullet
+﻿using oop_custom_program;
+using SplashKitSDK;
+public class Bullet : GameObject
 {
     private double _x, _y;
     private string _direction;
     private const double Speed = 10.0;
+    private int width, height;
+    
+    public double Width { get; set; }
+    public double Height { get; set; }
 
-    public Bullet(double x, double y, string direction)
+    public Bullet(double x, double y, string direction, int width = 2,int height = 2) 
     {
         _x = x;
         _y = y;
         _direction = direction;
+        Width = width;
+        Height = height;
     }
 
     public void UpdateBullet()
@@ -22,7 +29,7 @@ public class Bullet
         }else if (_direction == "down")
         {
             _y +=  (Speed);
-            Console.WriteLine("Shooting down");
+            // Console.WriteLine("Shooting down");
         }
     }
 
@@ -35,4 +42,6 @@ public class Bullet
 
     public double X { get { return _x; } }
     public double Y { get { return _y; } }
+    
+    public string Direction{ get { return _direction; } }
 }
