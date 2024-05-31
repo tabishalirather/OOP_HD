@@ -1,9 +1,8 @@
 ﻿using SplashKitSDK;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using oop_custom_program;
 
-public class Enemy : GameObject
+namespace oop_custom_program;
+// This is, for experiment
+public class Enemy : GameObject, IDrawable, IMovable
 {
     private Bitmap _bitmap;
     private double _x, _y;
@@ -18,7 +17,7 @@ public class Enemy : GameObject
         _sourceRect = SplashKit.RectangleFrom(7, 300, width, height); // Adjust according to specific sprite coordinates
     }
 
-    public void Update()
+    public void Move()
     {
         // Move down gradually to simulate coming towards the player
         _y += 3;
@@ -57,13 +56,13 @@ public class Enemy : GameObject
         return enemies;
     }
     
-        public void Shoot(List<Bullet> bullets)
-        {
+    public void Shoot(List<Bullet> bullets)
+    {
             
-            bullets.Add(new Bullet(X + Width / 2, Y + Height, "down"));
-        }
+        bullets.Add(new Bullet(X + Width / 2, Y + Height, "down"));
+    }
 
-        // Existing code...
+    // Existing code...
     
     public bool Intersects(Bullet bullet)
     {
@@ -89,20 +88,20 @@ public class Enemy : GameObject
 
 
     public double X
-        {
-            get { return _x; }
-        }
-        public double Y
-        {
-            get { return _y; }
-        }
-        public double Width
-        {
-            get { return _sourceRect.Width; }
-        }
-        public double Height
-        {
-            get { return _sourceRect.Height; }
-        }
-        
+    {
+        get { return _x; }
     }
+    public double Y
+    {
+        get { return _y; }
+    }
+    public double Width
+    {
+        get { return _sourceRect.Width; }
+    }
+    public double Height
+    {
+        get { return _sourceRect.Height; }
+    }
+        
+}

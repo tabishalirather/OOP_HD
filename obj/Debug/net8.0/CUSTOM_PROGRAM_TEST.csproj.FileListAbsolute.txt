@@ -1,0 +1,15 @@
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\bin\Debug\net8.0\CUSTOM_PROGRAM_TEST.exe
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\bin\Debug\net8.0\CUSTOM_PROGRAM_TEST.deps.json
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\bin\Debug\net8.0\CUSTOM_PROGRAM_TEST.runtimeconfig.json
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\bin\Debug\net8.0\CUSTOM_PROGRAM_TEST.dll
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\bin\Debug\net8.0\CUSTOM_PROGRAM_TEST.pdb
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\obj\Debug\net8.0\CUSTOM_PROGRAM_TEST.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\obj\Debug\net8.0\CUSTOM_PROGRAM_TEST.AssemblyInfoInputs.cache
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\obj\Debug\net8.0\CUSTOM_PROGRAM_TEST.AssemblyInfo.cs
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\obj\Debug\net8.0\CUSTOM_PROGRAM_TEST.csproj.CoreCompileInputs.cache
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\obj\Debug\net8.0\CUSTOM_PROGRAM_TEST.sourcelink.json
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\obj\Debug\net8.0\CUSTOM_PROGRAM_TEST.dll
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\obj\Debug\net8.0\refint\CUSTOM_PROGRAM_TEST.dll
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\obj\Debug\net8.0\CUSTOM_PROGRAM_TEST.pdb
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\obj\Debug\net8.0\CUSTOM_PROGRAM_TEST.genruntimeconfig.cache
+C:\Users\tabis\OneDrive - Swinburne University\Coursework\2024 Semester I\COS20007 OOP\Custom Program\OOP Custom program\obj\Debug\net8.0\ref\CUSTOM_PROGRAM_TEST.dll

@@ -1,11 +1,11 @@
 ﻿using oop_custom_program;
 using SplashKitSDK;
-public class Bullet : GameObject
+public class Bullet : GameObject, IDrawable
 {
     private double _x, _y;
     private string _direction;
     private const double Speed = 10.0;
-    private int width, height;
+    private int _width, _height;
     
     public double Width { get; set; }
     public double Height { get; set; }
@@ -19,7 +19,7 @@ public class Bullet : GameObject
         Height = height;
     }
 
-    public void UpdateBullet()
+    public void Move()
     {
         // Move the bullet upwards
         // _y -=  Speed;

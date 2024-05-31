@@ -2,21 +2,21 @@
 
 namespace oop_custom_program;
 
-public class Player : GameObject
+public class Player : GameObject, IDrawable, IMovable
 {
     private readonly Bitmap _playerBitmap;
     private double _x, _y;
     private readonly Rectangle _sourceRect;
-    private int _numberOfLives = 3;
     private bool _shield;
+    public int Width { get; set; }
+    public int Height { get; set; }
+    public double X { get { return _x; } }
+    public double Y { get { return _y; } }
     public TimeSpan CollisionCooldown { get; set; } = TimeSpan.FromSeconds(1);
-
-    public int NumberOfLives
-    {
-        get { return _numberOfLives; }
-        set { _numberOfLives = value; }
-    }
     
+
+    public int NumberOfLives { get; set; } = 3;
+
     public bool Shield { get; set; }
 
     public Player(Bitmap sheet, double x, double y, int width, int height)
@@ -29,7 +29,7 @@ public class Player : GameObject
         _sourceRect = SplashKit.RectangleFrom(7, 0, width, height); 
     }
 
-    public void Update()
+    public void Move()
     {
         // Move forward automatically
 

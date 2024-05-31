@@ -1,0 +1,120 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="UML Class Diagram">
+    <mxGraphModel dx="1096" dy="676" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- GameObject Class -->
+        <mxCell id="2" value="GameObject" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="60" width="180" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="+ GameObjectX : double&#xa;+ GameObjectY : double&#xa;+ GameObjectWidth : double&#xa;+ GameObjectHeight : double" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+          <mxGeometry y="40" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="3a" value="--------------------------" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+          <mxGeometry y="100" width="180" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="3b" value=" " style="text;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+          <mxGeometry y="120" width="180" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Enemy Class -->
+        <mxCell id="4" value="Enemy" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="260" width="180" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="- _bitmap : Bitmap&#xa;- _x : double&#xa;- _y : double&#xa;- _sourceRect : Rectangle&#xa;- LastCollisionTime : DateTime" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="4">
+          <mxGeometry y="40" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="5a" value="--------------------------" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="4">
+          <mxGeometry y="120" width="180" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="5b" value="+ Enemy(Bitmap sheet, double x, double y, int width, int height) : void&#xa;+ Move() : void&#xa;+ Draw(Window gameWindow) : void&#xa;+ IsOffScreen(Window gameWindow) : bool&#xa;+ Spawn(Bitmap sheet, int numberOfEnemies, Window gameWindow) : List<Enemy>&#xa;+ Shoot(List<Bullet> bullets) : void&#xa;+ Intersects(Bullet bullet) : bool" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="4">
+          <mxGeometry y="140" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Bullet Class -->
+        <mxCell id="7" value="Bullet" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="260" width="180" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="8" value="- _x : double&#xa;- _y : double&#xa;- _direction : string&#xa;- Speed : double&#xa;- _width : int&#xa;- _height : int" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="7">
+          <mxGeometry y="40" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="8a" value="--------------------------" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="7">
+          <mxGeometry y="120" width="180" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="8b" value="+ Bullet(double x, double y, string direction, int width, int height) : void&#xa;+ UpdateBullet() : void&#xa;+ Draw(Window gameWindow) : void" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="7">
+          <mxGeometry y="140" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- PowerUp Class -->
+        <mxCell id="10" value="PowerUp" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="260" width="180" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="PowerUpType&#xa;Speed&#xa;Shield&#xa;ExtraBullets" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="10">
+          <mxGeometry y="40" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="11a" value="--------------------------" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="10">
+          <mxGeometry y="100" width="180" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="11b" value="+ PowerUp(PowerUpType type, double x, double y, double width, double height) : void&#xa;+ Draw(Window gameWindow) : void&#xa;+ Move() : void&#xa;+ Activate(Player player) : void" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="10">
+          <mxGeometry y="120" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Player Class -->
+        <mxCell id="13" value="Player" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="260" width="180" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="- _playerBitmap : Bitmap&#xa;- _x : double&#xa;- _y : double&#xa;- _sourceRect : Rectangle&#xa;- _shield : bool&#xa;- _transparency : double" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="13">
+          <mxGeometry y="40" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="14a" value="--------------------------" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="13">
+          <mxGeometry y="140" width="180" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="14b" value="+ Player(Bitmap sheet, double x, double y, int width, int height) : void&#xa;+ Move() : void&#xa;+ Draw(Window gameWindow) : void&#xa;+ Intersects(Enemy enemy) : bool&#xa;+ Intersects(PowerUp powerUp) : bool&#xa;+ Intersects(Bullet bullet) : bool&#xa;+ Shoot(List<Bullet> bullets, string direction) : void&#xa;+ DecreaseTransparency() : void" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="13">
+          <mxGeometry y="160" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Game Class -->
+        <mxCell id="16" value="Game" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="260" width="200" height="340" as="geometry"/>
+        </mxCell>
+        <mxCell id="17" value="- _gameWindow : Window&#xa;- _spriteSheet : Bitmap&#xa;- _player : Player&#xa;- _enemies : List<Enemy>&#xa;- _playerBullets : List<Bullet>&#xa;- _enemyBullets : List<Bullet>&#xa;- _powerUps : List<PowerUp>&#xa;- _displayBonusHit : bool&#xa;- _bonusHitCounter : int" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="16">
+          <mxGeometry y="40" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="17a" value="--------------------------" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="16">
+          <mxGeometry y="140" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="17b" value="+ Game() : void&#xa;+ Move() : void&#xa;+ UpdatePlayer() : void&#xa;+ UpdatePowerUps() : void&#xa;+ UpdateEnemies() : void&#xa;+ UpdatePlayerBullets() : void&#xa;+ UpdateEnemyBullets() : void&#xa;+ HandlePlayerShooting() : void&#xa;+ HandleEnemyShooting() : void&#xa;+ HandlePowerUp() : void&#xa;+ CheckPlayerEnemyCollisions() : void&#xa;+ CheckPlayerHitByBullet() : void&#xa;+ CheckPlayerHit() : void&#xa;+ ResetGame() : void&#xa;+ DrawTextOnScreen(string text, float x, float y, int fontSize) : void&#xa;+ DisplayBonusHitText() : void&#xa;+ Run() : void&#xa;+ CheckBulletEnemyCollisions() : void" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="16">
+          <mxGeometry y="160" width="200" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="19" edge="1" parent="1" source="2" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="20" edge="1" parent="1" source="2" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" source="2" target="10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" source="2" target="13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="23" edge="1" parent="1" source="16" target="13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="24" edge="1" parent="1" source="16" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="25" edge="1" parent="1" source="16" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="26" edge="1" parent="1" source="16" target="10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
