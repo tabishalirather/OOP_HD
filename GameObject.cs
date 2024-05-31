@@ -2,8 +2,8 @@
 
 public class GameObject
 {
-    public double X { get; set; }
-    public double Y { get; set; }
-    public double Width { get; set; }
-    public double Height { get; set; }
+    public double GameObjectX { get; set; }
+    public double GameObjectY { get; set; }
+    public double GameObjectWidth { get; set; }
+    public double GameObjectHeight { get; set; }
 }

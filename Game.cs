@@ -1,8 +1,6 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using System.IO;
-using System.Net.NetworkInformation;
-using oop_custom_program;
-using SplashKitSDK;
+﻿using SplashKitSDK;
+
+namespace oop_custom_program;
 
 public class Game
 {
@@ -15,7 +13,7 @@ public class Game
     private List<PowerUp> _powerUps = new List<PowerUp>();
     private bool _displayBonusHit;
     private int _bonusHitCounter;
-    private int CurrentScore { get; set; } = 0;
+    private int CurrentScore { get; set; }
     string HighScoreFile { get; set;  } = @"V:\OOP Custom program\content\highscore.txt";
 
 
@@ -26,27 +24,27 @@ public class Game
         Restart
     }
 
-    public GameState State { get; set; } = GameState.Running;
+    private  GameState State { get; set; } = GameState.Running;
 
-   public int HighScore
-{
-    get
+   private int HighScore
     {
-        if (File.Exists(HighScoreFile))
+        get
         {
-            string fileContent = File.ReadAllText(HighScoreFile);
-            return string.IsNullOrEmpty(fileContent) ? 0 : int.Parse(fileContent);
+            if (File.Exists(HighScoreFile))
+            {
+                string fileContent = File.ReadAllText(HighScoreFile);
+                return string.IsNullOrEmpty(fileContent) ? 0 : int.Parse(fileContent);
+            }
+            else
+            {
+                return 0;
+            }
         }
-        else
+        set
         {
-            return 0;
+            File.WriteAllText(HighScoreFile, value.ToString());
         }
     }
-    set
-    {
-        File.WriteAllText(HighScoreFile, value.ToString());
-    }
-}
 
     public Game()
     {
@@ -84,7 +82,7 @@ public class Game
                     }
                     _playerBullets.RemoveAt(j); // Remove the bullet that hit the enemy
                     // CurrentScore += 10; // Increase the score by 10
-                    GameState state = GameState.Running;
+                    // GameState state = GameState.Running;
                     break; // Exit the inner loop since the enemy is already removed
                 }
             }
@@ -96,6 +94,7 @@ public class Game
     {
         // Handle player input and movements
         UpdatePlayer();
+        UpdatePowerUps();
 
         // Update all bullets and handle their lifecycle
         UpdatePlayerBullets();
@@ -111,17 +110,22 @@ public class Game
 
         CheckPlayerHitByBullet();
 
-        CheckPlayerPowerUpCollisions();
+        // CheckPlayerPowerUpCollisions();
 
-        HandlePowerUpCollision();
+        HandlePowerUp();
 
         HandleEnemyShooting();
+        HandlePlayerShooting();
     }
 
     private void UpdatePlayer()
     {
         _player.Update();
-        HandlePlayerShooting();
+    }
+
+    private void UpdatePowerUps()
+    {
+        _powerUps.ForEach(powerUp => powerUp.Update());
     }
 
     private void UpdateEnemyBullets()
@@ -143,18 +147,6 @@ public class Game
             if (_playerBullets[i].Y < 0 || _playerBullets[i].Y > _gameWindow.Height)
             {
                 _playerBullets.RemoveAt(i); // Remove bullets that go off-screen
-            }
-        }
-    }
-
-    private void CheckPlayerPowerUpCollisions()
-    {
-        for (int i = _powerUps.Count - 1; i >= 0; i--)
-        {
-            if (_player.Intersects(_powerUps[i]))
-            {
-                _powerUps[i].Activate(_player);
-                _powerUps.RemoveAt(i);
             }
         }
     }
@@ -207,7 +199,7 @@ public class Game
         // CheckPlayerBulletCollisions();
     }
 
-    private void HandlePowerUpCollision()
+    private void HandlePowerUp()
     {
         for (int i = _powerUps.Count - 1; i >= 0; i--)
         {
@@ -216,7 +208,6 @@ public class Game
                 _powerUps[i].Activate(_player);
                 _powerUps.RemoveAt(i);
                 
-                DrawTextOnScreen("Shield is up", 60, 70);
             }
         }
     }
@@ -286,12 +277,12 @@ public class Game
     }
     
 
-    public void DrawTextOnScreen(string text, float x, float y, int fontSize = 20)
+    private void DrawTextOnScreen(string text, float x, float y, int fontSize = 20)
     {
         _gameWindow.DrawText(text, Color.White, "Arial", fontSize, x, y);
     }
 
-    public void DisplayBonusHitText()
+    private void DisplayBonusHitText()
     {
         if (_displayBonusHit)
         {
@@ -315,7 +306,9 @@ public class Game
             if (State == GameState.GameOver)
             {
                 string gameOverText = "Game Over! Press R to restart.";
+                // ReSharper disable once PossibleLossOfFraction
                 float xText = (_gameWindow.Width - gameOverText.Length) / 2;
+                // ReSharper disable once PossibleLossOfFraction
                 float yText = (_gameWindow.Height - gameOverText.Length) / 2;
                 DrawTextOnScreen(gameOverText, xText, yText, 50);
 
@@ -339,7 +332,7 @@ public class Game
             else if (State == GameState.Running)
             {
                 _gameWindow.Clear(Color.Black);
-               DisplayBonusHitText();
+                DisplayBonusHitText();
                 Update();
             }
 

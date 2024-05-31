@@ -1,0 +1,205 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Concept Map">
+    <mxGraphModel dx="844" dy="996" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Object-Oriented Programming (OOP)" style="shape=ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="20" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Encapsulation -->
+        <mxCell id="3" value="Encapsulation" style="shape=ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Inheritance -->
+        <mxCell id="5" value="Inheritance" style="shape=ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Polymorphism -->
+        <mxCell id="7" value="Polymorphism" style="shape=ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Abstraction -->
+        <mxCell id="9" value="Abstraction" style="shape=ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Player -->
+        <mxCell id="11" value="Player" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="240" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Contains attributes and methods" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="3" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Enemy -->
+        <mxCell id="13" value="Enemy" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="240" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="Contains attributes and methods" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="3" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Bullet -->
+        <mxCell id="15" value="Bullet" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="320" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Contains attributes and methods" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="3" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- PowerUp -->
+        <mxCell id="17" value="PowerUp" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="320" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="Contains attributes and methods" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="3" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- GameObject (Parent Class) -->
+        <mxCell id="19" value="GameObject" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="Parent class" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5" target="19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Draw() Method (Polymorphism) -->
+        <mxCell id="21" value="Draw() Method" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="Implements differently in each class" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="7" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Class -->
+        <mxCell id="23" value="Class" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="420" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="Defines structure and behavior" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="19" target="23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Object -->
+        <mxCell id="25" value="Object" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="420" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="Instance of a class" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="19" target="25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Method -->
+        <mxCell id="27" value="Method" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="420" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="Defines behavior of an object" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="19" target="27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Interface -->
+        <mxCell id="29" value="Interface" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="420" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="Defines contract for classes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="19" target="29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Method Call -->
+        <mxCell id="31" value="Method Call" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="500" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="Invokes a method" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="27" target="31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Fields -->
+        <mxCell id="33" value="Fields" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="500" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="Attributes of a class" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="27" target="33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Private/Public/Protected -->
+        <mxCell id="35" value="Private/Public/Protected" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="500" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="Access modifiers for fields and methods" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="27" target="35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Overload/Override -->
+        <mxCell id="37" value="Overload/Override" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="Method with the same name but different parameters or implementation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="27" target="37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Virtual -->
+        <mxCell id="39" value="Virtual" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="580" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="40" value="Method that can be overridden" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="27" target="39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- New -->
+        <mxCell id="41" value="New" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="580" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="Creates an instance of a class" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="27" target="41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Roles and Responsibilities -->
+        <mxCell id="43" value="Roles and Responsibilities" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="580" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="44" value="Defines what a class or object should do" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="27" target="43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Collaborations -->
+        <mxCell id="45" value="Collaborations" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="660" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="46" value="Interactions between classes or objects" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="27" target="45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Coupling -->
+        <mxCell id="47" value="Coupling" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="660" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="48" value="Degree of dependence between classes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="27" target="47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Cohesion -->
+        <mxCell id="49" value="Cohesion" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="660" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="50" value="Degree to which elements of a class belong together" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="27" target="49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

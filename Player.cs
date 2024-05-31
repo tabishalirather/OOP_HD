@@ -7,16 +7,14 @@ public class Player : GameObject
     private readonly Bitmap _playerBitmap;
     private double _x, _y;
     private readonly Rectangle _sourceRect;
-    private int _numberOfLives = 3;
     private bool _shield;
+    private double Width { get; set; }
+    private double Height { get; set; }
     public TimeSpan CollisionCooldown { get; set; } = TimeSpan.FromSeconds(1);
-
-    public int NumberOfLives
-    {
-        get { return _numberOfLives; }
-        set { _numberOfLives = value; }
-    }
     
+
+    public int NumberOfLives { get; set; } = 3;
+
     public bool Shield { get; set; }
 
     public Player(Bitmap sheet, double x, double y, int width, int height)

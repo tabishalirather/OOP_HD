@@ -5,7 +5,7 @@ public class Bullet : GameObject
     private double _x, _y;
     private string _direction;
     private const double Speed = 10.0;
-    private int width, height;
+    private int _width, _height;
     
     public double Width { get; set; }
     public double Height { get; set; }

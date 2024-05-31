@@ -1,15 +1,23 @@
-﻿using oop_custom_program;
-using SplashKitSDK;
+﻿using SplashKitSDK;
+
+namespace oop_custom_program;
 
 public class PowerUp : GameObject
 {
-    public enum PowerUpType { Speed, Shield, ExtraLife }
+    public enum PowerUpType { 
+        Speed, 
+        Shield, 
+        ExtraBullets 
+    }
+
     public PowerUpType Type { get; set; }
     public double X { get; set; }
     public double Y { get; set; }
-    public bool IsActive { get; set; }
+    // public bool IsActive { get; set; }
     public double Width { get; set; }
     public double Height { get; set; }
+    public double Speed { get; set; }
+    public double PowerUpDirection { get; set; }   
 
     public PowerUp(PowerUpType type, double x, double y, double width, double height)
     {
@@ -18,7 +26,9 @@ public class PowerUp : GameObject
         Y = y;
         Width = width;
         Height = height;
-        IsActive = false;
+        Speed = 2;
+        PowerUpDirection = SplashKit.Rnd(-2, 2);
+        // IsActive = false;
     }
 
     public void Draw(Window gameWindow)
@@ -26,6 +36,21 @@ public class PowerUp : GameObject
         if (Type == PowerUpType.Shield)
         {
             gameWindow.FillRectangle(Color.Blue, X, Y, Width, Height);
+            gameWindow.DrawText("Activate shield", Color.White,"Arial",12, X, Y);
+        }
+    }
+    
+    public void Update()
+    {
+        X += Speed * PowerUpDirection; // Update the x position
+        Y += Speed; // Update the y position to move downward
+
+        // If the PowerUp goes off the screen, reset its position and direction
+        if (Y > SplashKit.ScreenHeight() || X < 0 || X > SplashKit.ScreenWidth())
+        {
+            Y = 0;
+            X = SplashKit.Rnd(0, SplashKit.ScreenWidth());
+            PowerUpDirection = SplashKit.Rnd(-2, 2);
         }
     }
     public void Activate(Player player)
@@ -34,9 +59,10 @@ public class PowerUp : GameObject
         {
             case PowerUpType.Shield:
                 player.Shield = true; // Activate the player's shield
-                Console.WriteLine("Shield is up");
+                Console.WriteLine("Shield Active");
+                SplashKit.DrawText("Shield Active", Color.White,"Arial",12, X, Y);
                 break;
-            case PowerUpType.ExtraLife:
+            case PowerUpType.ExtraBullets:
                 player.NumberOfLives += 1; // Give the player an extra life
                 break;
             case PowerUpType.Speed:
