@@ -6,10 +6,21 @@ namespace oop_custom_program
 {
     public class BulletFactory
     {
-        public  Bullet Create(double x, double y, string direction, int width = 2, int height = 2)
+        private int _playerRadius = 3;
+        private int _enemyRadius = 8;
+        int width = 2;
+        int height = 2;
+        public  Bullet Create(double x, double y, string direction)
         
         {
-            return new Bullet(x, y, direction, width, height); // Customize dimensions as necessary
+            Console.WriteLine("Player bullet c'd");
+            return new Bullet(x, y, direction, _playerRadius); // Customize dimensions as necessary
+        }
+        
+        public Bullet CreateEnemyBullet(double x, double y, string direction)
+        {
+            Console.WriteLine("Enemy bullet c'd");
+            return new Bullet(x, y, direction, _enemyRadius);
         }
     }
 }

@@ -1,11 +1,4 @@
 ﻿using SplashKitSDK;
-using System.Collections.Generic;
-using System.IO;
-
-using SplashKitSDK;
-using System.Collections.Generic;
-using System.IO;
-
 namespace oop_custom_program
 {
     public class GameSingleton
@@ -138,14 +131,38 @@ namespace oop_custom_program
             HandlePlayerShooting();
         }
 
+        // private void UpdatePlayer()
+        // {
+        //     _player.Move();
+        // }
+        
         private void UpdatePlayer()
         {
-            _player.Move();
+            if (SplashKit.KeyDown(KeyCode.LeftKey))
+            {
+                _player.Move(Direction.Left);
+            }
+            if (SplashKit.KeyDown(KeyCode.RightKey))
+            {
+                _player.Move(Direction.Right);
+            }
+            if (SplashKit.KeyDown(KeyCode.UpKey))
+            {
+                _player.Move(Direction.Up);
+            }
+            if (SplashKit.KeyDown(KeyCode.DownKey))
+            {
+                _player.Move(Direction.Down);
+            }
         }
 
         private void UpdatePowerUps()
         {
-            _powerUps.ForEach(powerUp => powerUp.Move());
+            // _powerUps.ForEach(powerUp => powerUp.Move());
+            foreach (PowerUp powerUp in _powerUps)
+            {
+                powerUp.Move();
+            }
         }
 
         private void UpdateEnemyBullets()
@@ -206,9 +223,9 @@ namespace oop_custom_program
         {
             if (SplashKit.Rnd() < 0.01)
             {
-                foreach (var enemy in _enemies)
+                foreach (Enemy enemy in _enemies)
                 {
-                    _enemyBullets.Add(_bulletFactory.Create(enemy.X + enemy.Width / 2, enemy.Y, "down"));
+                    _enemyBullets.Add(_bulletFactory.CreateEnemyBullet(enemy.X + enemy.Width / 2, enemy.Y, "down"));
                 }
             }
 
@@ -379,5 +396,12 @@ namespace oop_custom_program
             _spriteSheet.Free();
             _gameWindow.Close();
         }
+    }
+    public enum Direction
+    {
+        Left,
+        Right,
+        Up,
+        Down
     }
 }

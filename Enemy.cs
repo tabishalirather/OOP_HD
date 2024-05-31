@@ -7,8 +7,8 @@ public class Enemy : GameObject, IDrawable, IMovable
     private Bitmap _bitmap;
     private double _x, _y;
     private Rectangle _sourceRect;
-    public DateTime LastCollisionTime { get; set; }
-
+    // public DateTime LastCollisionTime { get; set; }
+    private double _enemySpeed = 2.8;
     public Enemy(Bitmap sheet, double x, double y, int width, int height)
     {
         _bitmap = sheet;
@@ -20,7 +20,7 @@ public class Enemy : GameObject, IDrawable, IMovable
     public void Move()
     {
         // Move down gradually to simulate coming towards the player
-        _y += 3;
+        _y += _enemySpeed;
     }
 
     public void Draw(Window gameWindow)
@@ -55,14 +55,6 @@ public class Enemy : GameObject, IDrawable, IMovable
 
         return enemies;
     }
-    
-    public void Shoot(List<Bullet> bullets)
-    {
-            
-        bullets.Add(new Bullet(X + Width / 2, Y + Height, "down"));
-    }
-
-    // Existing code...
     
     public bool Intersects(Bullet bullet)
     {

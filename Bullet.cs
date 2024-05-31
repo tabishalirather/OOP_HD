@@ -5,18 +5,20 @@ public class Bullet : GameObject, IDrawable
     private double _x, _y;
     private string _direction;
     private const double Speed = 10.0;
-    private int _width, _height;
-    
-    public double Width { get; set; }
-    public double Height { get; set; }
+    // private int _width, _height;
+    private int _radius;
+    public double Width { get; private set; }
+    public double Height { get; private set; }
+    public double Radius{ get; private set; }
 
-    public Bullet(double x, double y, string direction, int width = 2,int height = 2) 
+    public Bullet(double x, double y, string direction,  int radius) 
     {
         _x = x;
         _y = y;
         _direction = direction;
-        Width = width;
-        Height = height;
+        _radius = radius;
+        // Width = width;
+        // Height = height;
     }
 
     public void Move()
@@ -35,7 +37,7 @@ public class Bullet : GameObject, IDrawable
 
     public void Draw(Window gameWindow)
     {
-        gameWindow.DrawCircle(Color.White, (float)_x, (float)_y, 2);
+        gameWindow.DrawCircle(Color.White, (float)_x, (float)_y, _radius);
     }
     
 

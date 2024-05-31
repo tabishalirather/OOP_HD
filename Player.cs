@@ -1,8 +1,7 @@
 ﻿using SplashKitSDK;
 
 namespace oop_custom_program;
-
-public class Player : GameObject, IDrawable, IMovable
+public class Player : GameObject, IDrawable
 {
     private readonly Bitmap _playerBitmap;
     private double _x, _y;
@@ -13,6 +12,8 @@ public class Player : GameObject, IDrawable, IMovable
     public double X { get { return _x; } }
     public double Y { get { return _y; } }
     public TimeSpan CollisionCooldown { get; set; } = TimeSpan.FromSeconds(1);
+
+    private double _playerSpeed = 1.8;
     
 
     public int NumberOfLives { get; set; } = 3;
@@ -28,37 +29,63 @@ public class Player : GameObject, IDrawable, IMovable
         Height = height;
         _sourceRect = SplashKit.RectangleFrom(7, 0, width, height); 
     }
-
-    public void Move()
+    public void Move(Direction direction)
     {
-        // Move forward automatically
-
-
-        // Respond to arrow keys
-        if (SplashKit.KeyDown(KeyCode.UpKey))
+        switch (direction)
         {
-            _y -= 3;
+            case Direction.Left:
+                _x -= _playerSpeed;
+                break;
+            case Direction.Right:
+                _x += _playerSpeed;
+                break;
+            case Direction.Up:
+                _y -= _playerSpeed;
+                break;
+            case Direction.Down:
+                _y += _playerSpeed;
+                break;
+            default:
+                throw new ArgumentException("Invalid direction");
         }
-
-        if (SplashKit.KeyDown(KeyCode.LeftKey))
-        {
-            _x -= 5;
-        }
-
-        if (SplashKit.KeyDown(KeyCode.RightKey))
-        {
-            _x += 5;
-        }
-
-        if (SplashKit.KeyDown(KeyCode.DownKey))
-        {
-            _y += 5;
-        }
-
-        // Keep the player within window bounds
-        _x = Math.Max(0, Math.Min(SplashKit.ScreenWidth() - _sourceRect.Width, _x));
-        _y = Math.Max(0, Math.Min(SplashKit.ScreenHeight() - _sourceRect.Height, _y));
+        KeepPlayerOnScreen();
     }
+
+    public void KeepPlayerOnScreen()
+    {
+        _x = Math.Max(0, Math.Min(SplashKit.ScreenWidth() - _sourceRect.Width, _x));
+         _y = Math.Max(0, Math.Min(SplashKit.ScreenHeight() - _sourceRect.Height, _y));
+    }
+    // public void Move()
+    // {
+    //     // Move forward automatically
+    //
+    //
+    //     // Respond to arrow keys
+    //     if (SplashKit.KeyDown(KeyCode.UpKey))
+    //     {
+    //         _y -= 3;
+    //     }
+    //
+    //     if (SplashKit.KeyDown(KeyCode.LeftKey))
+    //     {
+    //         _x -= 5;
+    //     }
+    //
+    //     if (SplashKit.KeyDown(KeyCode.RightKey))
+    //     {
+    //         _x += 5;
+    //     }
+    //
+    //     if (SplashKit.KeyDown(KeyCode.DownKey))
+    //     {
+    //         _y += 5;
+    //     }
+    //
+    //     // Keep the player within window bounds
+    //     _x = Math.Max(0, Math.Min(SplashKit.ScreenWidth() - _sourceRect.Width, _x));
+    //     _y = Math.Max(0, Math.Min(SplashKit.ScreenHeight() - _sourceRect.Height, _y));
+    // }
 
     public void Draw(Window gameWindow)
     {
