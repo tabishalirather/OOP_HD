@@ -100,22 +100,22 @@ public class Player : GameObject, IDrawable, IMovable
     }
 
 
-    public void Shoot(List<Bullet> bullets, string direction)
-    {
-        bullets.Add(new Bullet(_x + _sourceRect.Width / 2, _y, direction));
-    }
+    // public void Shoot(List<Bullet> bullets, string direction)
+    // {
+    //     bullets.Add(new Bullet(_x + _sourceRect.Width / 2, _y, direction));
+    // }
     
-    private double _transparency = 1.0; // Full opacity initially
+    // private double _transparency = 1.0; // Full opacity initially
     // private int _hitCount = 0;
     // private int _maxHits = 3; // Number of hits after which the game is over
 
     // Constructor and existing methods...
 
-    public void DecreaseTransparency()
-    {
-        _transparency -= 0.33; // Decrease opacity by about 33% per hit
-        if (_transparency < 0) _transparency = 0; // Ensure transparency does not go negative
-    }
+    // public void DecreaseTransparency()
+    // {
+    //     _transparency -= 0.33; // Decrease opacity by about 33% per hit
+    //     if (_transparency < 0) _transparency = 0; // Ensure transparency does not go negative
+    // }
 
     // public void Draw(Window gameWindow)
     // {

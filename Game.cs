@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 
-using oop_custom_program;
+using SplashKitSDK;
+using System.Collections.Generic;
+using System.IO;
 
-    public class Game
+namespace oop_custom_program
+{
+    public class GameSingleton
     {
+        private static GameSingleton _instance;
         private Window _gameWindow;
         private Bitmap _spriteSheet;
         private Player _player;
@@ -18,7 +23,8 @@ using oop_custom_program;
         private List<PowerUp> _powerUps = new List<PowerUp>();
         private bool _displayBonusHit;
         private int _bonusHitCounter;
-        private int CurrentScore { get; set; }
+        private ScoreManager _scoreManager;
+        private ScoreDisplay _scoreDisplay;
         private string HighScoreFile { get; set; } = @"V:\OOP Custom program\content\highscore.txt";
 
         public enum GameState
@@ -29,7 +35,18 @@ using oop_custom_program;
         }
 
         private GameState State { get; set; } = GameState.Running;
-
+        public static GameSingleton Instance
+        {
+            get
+            {
+                // creates the instance if it does not exist, otherwise returns the exisiting instance. to ensure only one is created
+                if (_instance == null)
+                {
+                    _instance = new GameSingleton();
+                }
+                return _instance;
+            }
+        }
         private int HighScore
         {
             get
@@ -50,7 +67,8 @@ using oop_custom_program;
             }
         }
 
-        public Game()
+        // the private constructors makes sure we cannot use new keyword to create this object. the only way to get to it is using the Instance property which only allows creation of one game
+        private GameSingleton()
         {
             _gameWindow = new Window("Maqsad", 800, 600);
             _spriteSheet = new Bitmap("SpriteSheet", @"V:\OOP Custom program\content\shipsheetparts.PNG");
@@ -60,7 +78,11 @@ using oop_custom_program;
             _powerUpFactory = new PowerUpFactory();
             _enemies = SpawnEnemies(5);
             _powerUps.Add(_powerUpFactory.Create(PowerUp.PowerUpType.Shield, 100, 100));
+
+            _scoreManager = new ScoreManager();
+            _scoreDisplay = new ScoreDisplay(_scoreManager, _gameWindow);
         }
+
 
         private List<Enemy> SpawnEnemies(int count)
         {
@@ -87,11 +109,11 @@ using oop_custom_program;
 
                         if (_playerBullets[j].Direction == "up")
                         {
-                            CurrentScore += 10;
+                            _scoreManager.Score += 10;
                         }
                         else if (_playerBullets[j].Direction == "down")
                         {
-                            CurrentScore += 20;
+                            _scoreManager.Score += 20;
                             _displayBonusHit = true;
                             _bonusHitCounter = 0;
                         }
@@ -299,12 +321,12 @@ using oop_custom_program;
                         State = GameState.Restart;
                     }
 
-                    if (CurrentScore > HighScore)
+                    if (_scoreManager.Score > HighScore)
                     {
-                        HighScore = CurrentScore;
+                        HighScore = _scoreManager.Score;
                     }
 
-                    CurrentScore = 0;
+                    _scoreManager.Score = 0;
                 }
                 else if (State == GameState.Restart)
                 {
@@ -342,7 +364,7 @@ using oop_custom_program;
                 var texts = new List<(string Text, int Y)>
                 {
                     ($"Lives: {_player.NumberOfLives}", 10),
-                    ($"Score: {CurrentScore}", 30),
+                    ($"Score: {_scoreManager.Score}", 30),
                     ($"High Score: {HighScore}", 50)
                 };
 
@@ -358,3 +380,4 @@ using oop_custom_program;
             _gameWindow.Close();
         }
     }
+}

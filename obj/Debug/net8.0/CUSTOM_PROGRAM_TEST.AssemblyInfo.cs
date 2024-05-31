@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CUSTOM_PROGRAM_TEST")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cb6d1a9ae6c7c705d0824d9453deb92eaba11bf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33dd355d54179b2cc53c3b465493202b4d03fbef")]
 [assembly: System.Reflection.AssemblyProductAttribute("CUSTOM_PROGRAM_TEST")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CUSTOM_PROGRAM_TEST")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
