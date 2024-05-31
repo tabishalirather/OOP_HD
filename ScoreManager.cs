@@ -1,8 +1,8 @@
-﻿using oop_custom_program;
+﻿using CUSTOM_PROGRAM_TEST;
 
 using System.Collections.Generic;
 
-namespace oop_custom_program
+namespace CUSTOM_PROGRAM_TEST
 {
     public class ScoreManager : ISubject
     {

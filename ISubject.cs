@@ -1,4 +1,4 @@
-﻿namespace oop_custom_program;
+﻿namespace CUSTOM_PROGRAM_TEST;
 
 public interface ISubject
 {

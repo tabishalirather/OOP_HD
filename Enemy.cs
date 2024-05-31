@@ -1,6 +1,6 @@
 ﻿using SplashKitSDK;
 
-namespace oop_custom_program;
+namespace CUSTOM_PROGRAM_TEST;
 // This is, for experiment
 public class Enemy : GameObject, IDrawable, IMovable
 {

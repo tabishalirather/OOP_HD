@@ -1,6 +1,6 @@
 ﻿using SplashKitSDK;
 
-namespace oop_custom_program;
+namespace CUSTOM_PROGRAM_TEST;
 public class Player : GameObject, IDrawable
 {
     private readonly Bitmap _playerBitmap;

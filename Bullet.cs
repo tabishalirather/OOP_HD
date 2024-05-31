@@ -1,4 +1,4 @@
-﻿using oop_custom_program;
+﻿using CUSTOM_PROGRAM_TEST;
 using SplashKitSDK;
 public class Bullet : GameObject, IDrawable
 {

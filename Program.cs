@@ -1,4 +1,4 @@
-using oop_custom_program;
+using CUSTOM_PROGRAM_TEST;
 
 public class Program
 {
