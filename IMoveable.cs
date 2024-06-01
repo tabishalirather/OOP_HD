@@ -2,5 +2,5 @@
 
 public interface IMovable
 {
-    void Move();
+    void Move(Direction direction);
 }

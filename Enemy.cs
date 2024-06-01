@@ -9,6 +9,7 @@ public class Enemy : GameObject, IDrawable, IMovable
     private Rectangle _sourceRect;
     // public DateTime LastCollisionTime { get; set; }
     private double _enemySpeed = 2.8;
+    
     public Enemy(Bitmap sheet, double x, double y, int width, int height)
     {
         _bitmap = sheet;
@@ -17,10 +18,14 @@ public class Enemy : GameObject, IDrawable, IMovable
         _sourceRect = SplashKit.RectangleFrom(7, 300, width, height); // Adjust according to specific sprite coordinates
     }
 
-    public void Move()
+    public void Move(Direction direction)
     {
         // Move down gradually to simulate coming towards the player
-        _y += _enemySpeed;
+        if(direction == Direction.Down)
+        {
+            _y += _enemySpeed;
+        }
+        // can add different directions here
     }
 
     public void Draw(Window gameWindow)
@@ -56,44 +61,44 @@ public class Enemy : GameObject, IDrawable, IMovable
         return enemies;
     }
     
-    public bool Intersects(Bullet bullet)
-    {
-        // Define the boundary of the bullet
-        double bulletRightEdge = bullet.X + 2; // Bullet width is considered as 2 for collision
-        double bulletLeftEdge = bullet.X;
-        double bulletTopEdge = bullet.Y;
-        double bulletBottomEdge = bullet.Y + 2; // Bullet height is considered as 2 for collision
+    // public bool Intersects(Bullet bullet)
+    // {
+    //     // Define the boundary of the bullet
+    //     double bulletRightEdge = bullet.X + 2; // Bullet width is considered as 2 for collision
+    //     double bulletLeftEdge = bullet.X;
+    //     double bulletTopEdge = bullet.Y;
+    //     double bulletBottomEdge = bullet.Y + 2; // Bullet height is considered as 2 for collision
+    //
+    //     // Define the boundary of the enemy
+    //     double enemyRightEdge = _x + _sourceRect.Width;
+    //     double enemyLeftEdge = _x;
+    //     double enemyTopEdge = _y;
+    //     double enemyBottomEdge = _y + _sourceRect.Height;
+    //
+    //     // Check if there is an overlap between the bullet's and enemy's boundaries
+    //     bool horizontalOverlap = enemyRightEdge > bulletLeftEdge && enemyLeftEdge < bulletRightEdge;
+    //     bool verticalOverlap = enemyBottomEdge > bulletTopEdge && enemyTopEdge < bulletBottomEdge;
+    //
+    //     // Return true if both horizontal and vertical overlaps exist, indicating a collision
+    //     return horizontalOverlap && verticalOverlap;
+    // }
 
-        // Define the boundary of the enemy
-        double enemyRightEdge = _x + _sourceRect.Width;
-        double enemyLeftEdge = _x;
-        double enemyTopEdge = _y;
-        double enemyBottomEdge = _y + _sourceRect.Height;
 
-        // Check if there is an overlap between the bullet's and enemy's boundaries
-        bool horizontalOverlap = enemyRightEdge > bulletLeftEdge && enemyLeftEdge < bulletRightEdge;
-        bool verticalOverlap = enemyBottomEdge > bulletTopEdge && enemyTopEdge < bulletBottomEdge;
-
-        // Return true if both horizontal and vertical overlaps exist, indicating a collision
-        return horizontalOverlap && verticalOverlap;
-    }
-
-
-    public double X
+    public override double X
     {
         get { return _x; }
     }
-    public double Y
+    public override  double Y
     {
         get { return _y; }
     }
-    public double Width
+    public override  double Width
     {
         get { return _sourceRect.Width; }
     }
-    public double Height
+    public override  double Height
     {
         get { return _sourceRect.Height; }
     }
-        
+    //     
 }

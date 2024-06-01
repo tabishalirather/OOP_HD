@@ -20,6 +20,8 @@ public class GameSingleton
     private ScoreManager _scoreManager;
     private ScoreDisplay _scoreDisplay;
     private IGameState _currentState;
+    private int _directionChangeCounter = 0;
+    private const int DirectionChangeDelay = 2; 
 
     private string HighScoreFile { get; set; } = @"V:\OOP Custom program\content\highscore.txt";
 
@@ -44,7 +46,8 @@ public class GameSingleton
         _bulletFactory = new BulletFactory();
         _powerUpFactory = new PowerUpFactory();
         _enemies = SpawnEnemies(5);
-        _powerUps.Add(_powerUpFactory.Create(PowerUp.PowerUpType.Shield, 100, 100));
+        _powerUps.Add(_powerUpFactory.Create(this, PowerUpType.Shield, 100, 100));
+        _powerUps.Add(_powerUpFactory.Create(this, PowerUpType.FriendShip, 120, 60));
 
         _scoreManager = new ScoreManager();
         _scoreDisplay = new ScoreDisplay(_scoreManager, GameWindow);
@@ -95,14 +98,36 @@ public class GameSingleton
             _player.Move(Direction.Down);
         }
     }
+    
+    public Direction RandomDirection()
+    {
+        Random random = new Random();
+        int randomInt = random.Next(4);
+        return (Direction)randomInt;
+    }
+public void UpdatePowerUps()
+{
+    Random random = new Random();
 
-    public void UpdatePowerUps()
+    // Only change direction when the counter reaches the delay value
+    if (_directionChangeCounter >= DirectionChangeDelay)
     {
         foreach (PowerUp powerUp in _powerUps)
         {
-            powerUp.Move();
+            // int randomInt = random.Next(4);
+            Direction randomDirection = RandomDirection();
+            powerUp.Move(randomDirection);
         }
+
+        // Reset the counter
+        _directionChangeCounter = 0;
     }
+    else
+    {
+        // Increment the counter
+        _directionChangeCounter++;
+    }
+}
 
     public void UpdateEnemyBullets()
     {
@@ -132,7 +157,7 @@ public class GameSingleton
     {
         for (int i = _enemies.Count - 1; i >= 0; i--)
         {
-            _enemies[i].Move();
+            _enemies[i].Move(Direction.Down);
             if (_enemies[i].IsOffScreen(GameWindow))
             {
                 _enemies.RemoveAt(i);
@@ -222,6 +247,23 @@ public class GameSingleton
             }
         }
     }
+    
+//     public void MoveInRandomDirection()
+// {
+//     // Create a new Random instance
+//     Random random = new Random();
+//
+//     foreach (PowerUp powerUp in _powerUps)
+//     {
+//
+//         int randomInt = random.Next(4);
+//         
+//         Direction randomDirection = (Direction)randomInt;
+//
+//
+//         powerUp.Move(randomDirection);
+//     }
+// }
 
     public void CheckPlayerEnemyCollisions()
     {
@@ -240,6 +282,7 @@ public class GameSingleton
     {
         for (int i = _enemyBullets.Count - 1; i >= 0; i--)
         {
+            Console.WriteLine("Checking for bulle tcollison");
             if (_player.Intersects(_enemyBullets[i]))
             {
                 Console.WriteLine("Player hit by bullet");
@@ -378,4 +421,10 @@ public enum Direction
     Right,
     Up,
     Down
+}
+public enum PowerUpType
+{
+    Shield,
+    FriendShip
+    // Add other powerup types here...
 }

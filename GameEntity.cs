@@ -19,7 +19,7 @@ public abstract class GameEntity : IMovable, IDrawable
 
     public abstract void Draw(Window gameWindow);
 
-    public virtual void Move()
+    public virtual void Move(Direction _direction)
     {
         
     }

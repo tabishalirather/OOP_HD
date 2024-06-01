@@ -42,8 +42,8 @@ public class Bullet : GameObject, IDrawable
     
 
 
-    public double X { get { return _x; } }
-    public double Y { get { return _y; } }
+    public override double X { get { return _x; } }
+    public override double Y { get { return _y; } }
     
     public string Direction{ get { return _direction; } }
 }

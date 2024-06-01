@@ -1,16 +1,32 @@
 ﻿using SplashKitSDK;
 
 namespace CUSTOM_PROGRAM_TEST;
-public class Player : GameObject, IDrawable
+public class Player : GameObject, IMovable, IDrawable
 {
     private readonly Bitmap _playerBitmap;
     private double _x, _y;
     private readonly Rectangle _sourceRect;
     private bool _shield;
-    public int Width { get; set; }
-    public int Height { get; set; }
-    public double X { get { return _x; } }
-    public double Y { get { return _y; } }
+
+    public override double Width
+    {
+        get { return _sourceRect.Width; }
+    }
+    public override double Height
+    {
+        get { return _sourceRect.Height; }
+    }
+
+    public override double X
+    {
+        get { return _x; }
+        set { _x = value; }
+    }
+    public override double Y
+    {
+        get { return _y; }
+        set { _y = value; }
+    }
     public TimeSpan CollisionCooldown { get; set; } = TimeSpan.FromSeconds(1);
 
     private double _playerSpeed = 1.8;
@@ -27,7 +43,9 @@ public class Player : GameObject, IDrawable
         _y = y;
         Width = width;
         Height = height;
-        _sourceRect = SplashKit.RectangleFrom(7, 0, width, height); 
+        _sourceRect = SplashKit.RectangleFrom(7, 0, width, height);
+        X = _x;
+        Y = _y;
     }
     public void Move(Direction direction)
     {
@@ -48,6 +66,9 @@ public class Player : GameObject, IDrawable
             default:
                 throw new ArgumentException("Invalid direction");
         }
+
+        X = _x;
+        Y = _y;
         KeepPlayerOnScreen();
     }
 
@@ -56,75 +77,45 @@ public class Player : GameObject, IDrawable
         _x = Math.Max(0, Math.Min(SplashKit.ScreenWidth() - _sourceRect.Width, _x));
          _y = Math.Max(0, Math.Min(SplashKit.ScreenHeight() - _sourceRect.Height, _y));
     }
-    // public void Move()
-    // {
-    //     // Move forward automatically
-    //
-    //
-    //     // Respond to arrow keys
-    //     if (SplashKit.KeyDown(KeyCode.UpKey))
-    //     {
-    //         _y -= 3;
-    //     }
-    //
-    //     if (SplashKit.KeyDown(KeyCode.LeftKey))
-    //     {
-    //         _x -= 5;
-    //     }
-    //
-    //     if (SplashKit.KeyDown(KeyCode.RightKey))
-    //     {
-    //         _x += 5;
-    //     }
-    //
-    //     if (SplashKit.KeyDown(KeyCode.DownKey))
-    //     {
-    //         _y += 5;
-    //     }
-    //
-    //     // Keep the player within window bounds
-    //     _x = Math.Max(0, Math.Min(SplashKit.ScreenWidth() - _sourceRect.Width, _x));
-    //     _y = Math.Max(0, Math.Min(SplashKit.ScreenHeight() - _sourceRect.Height, _y));
-    // }
 
     public void Draw(Window gameWindow)
     {
         gameWindow.DrawBitmap(_playerBitmap, (float)_x, (float)_y, SplashKit.OptionPartBmp(_sourceRect));
     }
 
-    public bool Intersects(Enemy enemy)
-    {
-        if(_shield)
-        {
-            return false;
-        }
-        return _x < enemy.X + enemy.Width &&
-               _x + _sourceRect.Width > enemy.X &&
-               _y < enemy.Y + enemy.Height &&
-               _y + _sourceRect.Height > enemy.Y;
-    }
+    // public bool Intersects(Enemy enemy)
+    // {
+    //     if(_shield)
+    //     {
+    //         return false;
+    //     }
+    //     return _x < enemy.X + enemy.Width &&
+    //            _x + _sourceRect.Width > enemy.X &&
+    //            _y < enemy.Y + enemy.Height &&
+    //            _y + _sourceRect.Height > enemy.Y;
+    // }
     
-    public bool Intersects(PowerUp powerUp)
-    {
-        return _x < powerUp.X + powerUp.Width &&
-               _x + _sourceRect.Width > powerUp.X &&
-               _y < powerUp.Y + powerUp.Height &&
-               _y + _sourceRect.Height > powerUp.Y;
-    }
+    // public bool Intersects(PowerUp powerUp)
+    // {
+    //     return _x < powerUp.X + powerUp.Width &&
+    //            _x + _sourceRect.Width > powerUp.X &&
+    //            _y < powerUp.Y + powerUp.Height &&
+    //            _y + _sourceRect.Height > powerUp.Y;
+    // }
+    //
     
-    public bool Intersects(Bullet bullet)
-    {
+//     public  override  bool Intersects(GameObject other)
+// {
+//     // Use the Intersects method from the GameObject class'
+//     Console.WriteLine("Intersects in player called");
+//      Console.WriteLine("In Player, X, Y, Width, height");
+//      Console.WriteLine(X);
+//      Console.WriteLine(Y);
+//      Console.WriteLine(Width);
+//      Console.WriteLine(Height);
+//      return base.Intersects(other);
+// }
     
-        // if(Shield)
-        // {
-        //     return false;
-        // }
-
-        return _x < bullet.X + bullet.Width &&
-               _x + Width > bullet.X &&
-               _y < bullet.Y + bullet.Height &&
-               _y + Height > bullet.Y;
-    }
 
 
     // public void Shoot(List<Bullet> bullets, string direction)

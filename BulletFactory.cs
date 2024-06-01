@@ -19,7 +19,7 @@ namespace CUSTOM_PROGRAM_TEST
         
         public Bullet CreateEnemyBullet(double x, double y, string direction)
         {
-            Console.WriteLine("Enemy bullet c'd");
+            // Console.WriteLine("Enemy bullet c'd");
             return new Bullet(x, y, direction, _enemyRadius);
         }
     }
