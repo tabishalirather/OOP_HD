@@ -46,11 +46,11 @@ public class GameSingleton
         _bulletFactory = new BulletFactory();
         _powerUpFactory = new PowerUpFactory();
         _enemies = SpawnEnemies(5);
-        _powerUps.Add(_powerUpFactory.Create(this, PowerUpType.Shield, 100, 100));
-        _powerUps.Add(_powerUpFactory.Create(this, PowerUpType.FriendShip, 120, 60));
-
         _scoreManager = new ScoreManager();
         _scoreDisplay = new ScoreDisplay(_scoreManager, GameWindow);
+        _powerUps.Add(_powerUpFactory.Create(this,  PowerUpType.Shield, _scoreManager, 100, 100));
+        _powerUps.Add(_powerUpFactory.Create(this, PowerUpType.ScoreBoost, _scoreManager,120, 60));
+
 
         ChangeState(new StartState());
     }
@@ -214,8 +214,21 @@ public void UpdatePowerUps()
         {
             if (_player.Intersects(_powerUps[i]))
             {
-                _powerUps[i].Activate(_player);
-                _powerUps.RemoveAt(i);
+                switch (_powerUps[i])
+                {
+                    case Shield shield:
+                        shield.Activate(_player);
+                        break;
+                    case FriendShip friendShip:
+                        friendShip.Activate(_player);
+                        // ActivateFriendShip();
+                        break;
+                    case ScoreBoost scoreBoost:
+                        scoreBoost.Activate(_player);
+                        // ActivateFriendShip();
+                        break;
+                }
+            _powerUps.RemoveAt(i);
             }
         }
     }
@@ -282,7 +295,7 @@ public void UpdatePowerUps()
     {
         for (int i = _enemyBullets.Count - 1; i >= 0; i--)
         {
-            Console.WriteLine("Checking for bulle tcollison");
+            // Console.WriteLine("Checking for bulle tcollison");
             if (_player.Intersects(_enemyBullets[i]))
             {
                 Console.WriteLine("Player hit by bullet");
@@ -425,6 +438,7 @@ public enum Direction
 public enum PowerUpType
 {
     Shield,
-    FriendShip
-    // Add other powerup types here...
+    FriendShip,
+    ScoreBoost
+    
 }

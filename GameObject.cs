@@ -14,20 +14,20 @@ public abstract class GameObject
     public virtual bool Intersects(GameObject other)
     {
         
-        Console.WriteLine("X: " + X + " Y: " + Y + " Width: " + Width + " Height: " + Height);
-        Console.WriteLine("I am called");
+        // Console.WriteLine("X: " + X + " Y: " + Y + " Width: " + Width + " Height: " + Height);
+        // Console.WriteLine("I am called");
         // Define the boundaries of this object
         double thisRightEdge = this.X + this.Width;
         double thisLeftEdge = this.X;
         double thisTopEdge = this.Y;
         double thisBottomEdge = this.Y + this.Height;
-        Console.WriteLine("This Right Edge: " + thisRightEdge + " This Left Edge: " + thisLeftEdge + " This Top Edge: " + thisTopEdge + " This Bottom Edge: " + thisBottomEdge);
+        // Console.WriteLine("This Right Edge: " + thisRightEdge + " This Left Edge: " + thisLeftEdge + " This Top Edge: " + thisTopEdge + " This Bottom Edge: " + thisBottomEdge);
         // Define the boundaries of the other object
         double otherRightEdge = other.X + other.Width;
         double otherLeftEdge = other.X;
         double otherTopEdge = other.Y;
         double otherBottomEdge = other.Y + other.Height;
-        Console.WriteLine("Other Right Edge: " + otherRightEdge + " Other Left Edge: " + otherLeftEdge + " Other Top Edge: " + otherTopEdge + " Other Bottom Edge: " + otherBottomEdge);
+        // Console.WriteLine("Other Right Edge: " + otherRightEdge + " Other Left Edge: " + otherLeftEdge + " Other Top Edge: " + otherTopEdge + " Other Bottom Edge: " + otherBottomEdge);
         // Check if there is an overlap between this object's and the other object's boundaries
         bool horizontalOverlap = thisRightEdge > otherLeftEdge && thisLeftEdge < otherRightEdge;
         bool verticalOverlap = thisBottomEdge > otherTopEdge && thisTopEdge < otherBottomEdge;
