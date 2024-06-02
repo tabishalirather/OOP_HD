@@ -81,5 +81,9 @@ public class Player : GameObject, IMovable, IDrawable
     public void Draw(Window gameWindow)
     {
         gameWindow.DrawBitmap(_playerBitmap, (float)_x, (float)_y, SplashKit.OptionPartBmp(_sourceRect));
+    } 
+    public override bool IsOffScreen(Window gameWindow)
+    {
+        return false;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CUSTOM_PROGRAM_TEST;
+using SplashKitSDK;
 
 public abstract class GameObject
 {
@@ -35,5 +36,10 @@ public abstract class GameObject
         // Return true if both horizontal and vertical overlaps exist, indicating a collision
         return horizontalOverlap && verticalOverlap;
     }
+    
+    public virtual bool IsOffScreen(Window gameWindow)
+{
+    return X < 0 || Y < 0 || X > gameWindow.Width || Y > gameWindow.Height;
+}
 }
 

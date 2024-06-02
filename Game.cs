@@ -334,6 +334,8 @@ public void UpdatePowerUps()
         _enemyBullets.Clear();
         _powerUps.Clear();
         _enemies.AddRange(SpawnEnemies(5));
+        _powerUps.Add(_powerUpFactory.Create(this, PowerUpType.Shield, _scoreManager, 100, 100));
+        _powerUps.Add(_powerUpFactory.Create(this, PowerUpType.ScoreBoost, _scoreManager, 120, 60));
     }
 
     public void DrawGameObjects()

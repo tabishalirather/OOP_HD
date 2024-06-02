@@ -33,7 +33,7 @@ public class Enemy : GameObject, IDrawable, IMovable
         gameWindow.DrawBitmap(_bitmap, (float)_x, (float)_y, SplashKit.OptionPartBmp(_sourceRect));
     }
 
-    public bool IsOffScreen(Window gameWindow)
+    public override bool IsOffScreen(Window gameWindow)
     {
         // Check if the enemy has moved off the bottom of the screen
         return _y > gameWindow.Height;
