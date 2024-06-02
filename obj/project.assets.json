@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "V:\\OOP Custom program\\oop_custom_program.csproj",
-      "projectName": "oop_custom_program",
-      "projectPath": "V:\\OOP Custom program\\oop_custom_program.csproj",
+      "projectUniqueName": "C:\\Users\\tabis\\OneDrive - Swinburne University\\Coursework\\2024 Semester I\\COS20007 OOP\\Custom Program\\OOP Custom program\\CUSTOM_PROGRAM_TEST.csproj",
+      "projectName": "CUSTOM_PROGRAM_TEST",
+      "projectPath": "C:\\Users\\tabis\\OneDrive - Swinburne University\\Coursework\\2024 Semester I\\COS20007 OOP\\Custom Program\\OOP Custom program\\CUSTOM_PROGRAM_TEST.csproj",
       "packagesPath": "C:\\Users\\tabis\\.nuget\\packages\\",
-      "outputPath": "V:\\OOP Custom program\\obj\\",
+      "outputPath": "C:\\Users\\tabis\\OneDrive - Swinburne University\\Coursework\\2024 Semester I\\COS20007 OOP\\Custom Program\\OOP Custom program\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tabis\\AppData\\Roaming\\NuGet\\NuGet.Config",
