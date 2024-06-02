@@ -13,7 +13,7 @@ public abstract class GameObject
 
     public virtual bool Intersects(GameObject other)
     {
-        
+
         // Console.WriteLine("X: " + X + " Y: " + Y + " Width: " + Width + " Height: " + Height);
         // Console.WriteLine("I am called");
         // Define the boundaries of this object
@@ -35,25 +35,5 @@ public abstract class GameObject
         // Return true if both horizontal and vertical overlaps exist, indicating a collision
         return horizontalOverlap && verticalOverlap;
     }
-    // public bool Intersects(Enemy enemy)
-    // {
-    //     if(_shield)
-    //     {
-    //         return false;
-    //     }
-    //     return _x < enemy.X + enemy.Width &&
-    //            _x + _sourceRect.Width > enemy.X &&
-    //            _y < enemy.Y + enemy.Height &&
-    //            _y + _sourceRect.Height > enemy.Y;
-    // }
-    //
-    // public bool Intersects(PowerUp powerUp)
-    // {
-    //     return _x < powerUp.X + powerUp.Width &&
-    //            _x + _sourceRect.Width > powerUp.X &&
-    //            _y < powerUp.Y + powerUp.Height &&
-    //            _y + _sourceRect.Height > powerUp.Y;
-    // }
-    
 }
 
